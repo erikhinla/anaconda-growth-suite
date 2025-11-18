@@ -22,12 +22,8 @@ const Navigation = () => {
               <span className="text-primary-foreground font-bold text-xl">A</span>
             </div>
             <div className="flex flex-col">
-              <span className="font-semibold text-foreground text-lg leading-none">
-                Anaconda Aesthetics
-              </span>
-              <span className="text-xs text-muted-foreground tracking-wider">
-                Scale With AI Intelligence
-              </span>
+              <span className="font-semibold text-foreground text-lg leading-none">Anaconda Aesthetics</span>
+              <span className="text-xs text-muted-foreground tracking-wider">Scale With AI</span>
             </div>
           </a>
 
@@ -42,17 +38,11 @@ const Navigation = () => {
                 {link.label}
               </a>
             ))}
-            <Button className="gradient-luxury text-primary-foreground shadow-luxury">
-              Book Audit
-            </Button>
+            <Button className="gradient-luxury text-primary-foreground shadow-luxury">Book Audit</Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-foreground"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
+          <button className="md:hidden text-foreground" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -70,9 +60,7 @@ const Navigation = () => {
                 {link.label}
               </a>
             ))}
-            <Button className="w-full gradient-luxury text-primary-foreground shadow-luxury">
-              Book Audit
-            </Button>
+            <Button className="w-full gradient-luxury text-primary-foreground shadow-luxury">Book Audit</Button>
           </div>
         )}
       </div>

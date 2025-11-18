@@ -9,16 +9,12 @@ const Footer = () => {
                 <span className="text-primary-foreground font-bold text-xl">A</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-semibold text-foreground leading-none">
-                  Anaconda Aesthetics
-                </span>
-                <span className="text-xs text-muted-foreground">
-                  Scale With AI Intelligence
-                </span>
+                <span className="font-semibold text-foreground leading-none">Anaconda Aesthetics</span>
+                <span className="text-xs text-muted-foreground">Scale With AI</span>
               </div>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              AI growth systems for luxury medical-aesthetic clinics in Los Angeles and the San Fernando Valley.
+              AI growth systems for luxury medical-aesthetic locations in Los Angeles and the San Fernando Valley.
             </p>
           </div>
 
@@ -77,9 +73,12 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-foreground mb-4">Location</h3>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-              Serving luxury medical-aesthetic clinics in:<br />
-              Los Angeles<br />
-              Sherman Oaks<br />
+              Serving luxury medical-aesthetic clinics in:
+              <br />
+              Los Angeles
+              <br />
+              Sherman Oaks
+              <br />
               San Fernando Valley
             </p>
           </div>
@@ -87,9 +86,7 @@ const Footer = () => {
 
         <div className="pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-sm text-muted-foreground">
-              © 2025 Anaconda Aesthetics. All rights reserved.
-            </p>
+            <p className="text-sm text-muted-foreground">© 2025 Anaconda Aesthetics. All rights reserved.</p>
             <div className="flex gap-6">
               <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-smooth">
                 Privacy Policy
