@@ -1,7 +1,9 @@
 import { Bot, Zap, Database, Globe, Sparkles } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useState } from "react";
 
 const Services = () => {
+  const [flippedCards, setFlippedCards] = useState<Set<number>>(new Set());
   const services = [
     {
       icon: Bot,
@@ -43,26 +45,46 @@ const Services = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {services.map((service, index) => (
-            <Card
-              key={index}
-              className="group border-border hover:border-luxury-bronze/30 shadow-card hover:shadow-luxury transition-smooth bg-card/50 backdrop-blur-sm"
-            >
-              <CardHeader>
-                <div className="w-14 h-14 rounded-xl gradient-luxury flex items-center justify-center mb-4 group-hover:scale-110 transition-smooth">
-                  <service.icon className="w-7 h-7 text-primary-foreground" />
+          {services.map((service, index) => {
+            const isFlipped = flippedCards.has(index);
+            
+            return (
+              <div
+                key={index}
+                className="flip-card h-80 cursor-pointer perspective-1000"
+                onClick={() => {
+                  const newFlipped = new Set(flippedCards);
+                  if (isFlipped) {
+                    newFlipped.delete(index);
+                  } else {
+                    newFlipped.add(index);
+                  }
+                  setFlippedCards(newFlipped);
+                }}
+              >
+                <div className={`flip-card-inner ${isFlipped ? 'flipped' : ''}`}>
+                  {/* Front */}
+                  <Card className="flip-card-front absolute inset-0 border-border shadow-card bg-card/50 backdrop-blur-sm flex flex-col items-center justify-center p-8">
+                    <div className="w-24 h-24 rounded-2xl gradient-luxury flex items-center justify-center mb-6">
+                      <service.icon className="w-12 h-12 text-primary-foreground" />
+                    </div>
+                    <CardTitle className="text-xl font-semibold text-foreground text-center">
+                      {service.title}
+                    </CardTitle>
+                  </Card>
+                  
+                  {/* Back */}
+                  <Card className="flip-card-back absolute inset-0 border-border shadow-card bg-card backdrop-blur-sm flex items-center justify-center p-8">
+                    <CardContent className="p-0">
+                      <p className="text-muted-foreground leading-relaxed text-center">
+                        {service.description}
+                      </p>
+                    </CardContent>
+                  </Card>
                 </div>
-                <CardTitle className="text-xl font-semibold text-foreground">
-                  {service.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed">
-                  {service.description}
-                </p>
-              </CardContent>
-            </Card>
-          ))}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
