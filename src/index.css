@@ -9,29 +9,29 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 30 10% 20%;
+    --foreground: 215 25% 26.6667%;
 
     --card: 0 0% 100%;
-    --card-foreground: 30 10% 20%;
+    --card-foreground: 218 10.6145% 64.902%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 30 10% 20%;
+    --popover-foreground: 215 20.2247% 65.098%;
 
     /* Luxury gold/bronze primary */
     --primary: 35 45% 55%;
-    --primary-foreground: 0 0% 100%;
+    --primary-foreground: 167 85.4545% 89.2157%;
 
     /* Warm taupe secondary */
-    --secondary: 30 15% 85%;
-    --secondary-foreground: 30 10% 25%;
+    --secondary: 217 32.5843% 17.451%;
+    --secondary-foreground: 217 32.5843% 17.451%;
 
     /* Soft muted tones */
     --muted: 30 10% 95%;
-    --muted-foreground: 30 8% 45%;
+    --muted-foreground: 240 3.8298% 46.0784%;
 
     /* Elegant accent gold */
-    --accent: 40 50% 60%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 185 95.9184% 90.3922%;
+    --accent-foreground: 240 4.7619% 95.8824%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
@@ -156,5 +156,17 @@ All colors MUST be HSL.
   
   .transition-smooth {
     transition: var(--transition-smooth);
+  }
+}
+
+/* ---break---
+*/
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
