@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
-
 const Hero = () => {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-clinical-white to-background">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-clinical-white to-background">
       {/* Decorative elements */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
       <div className="absolute top-1/4 -left-48 w-96 h-96 bg-luxury-gold/10 rounded-full blur-3xl"></div>
@@ -18,32 +16,20 @@ const Hero = () => {
           </div>
 
           {/* Main heading */}
-          <h1 className="text-5xl md:text-7xl font-bold text-foreground tracking-tight text-balance">
-            Anaconda Aesthetics
-          </h1>
+          <h1 className="text-5xl font-bold text-foreground tracking-tight text-balance md:text-6xl">You'd answer every client call        </h1>
 
-          <p className="text-2xl md:text-3xl font-light text-luxury-bronze tracking-wide">Scale With AI</p>
+          <p className="text-2xl md:text-3xl font-light text-luxury-bronze tracking-wide">but you're only human         </p>
 
           {/* Subheading */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            AI growth systems for luxury medical-aesthetic clinics ready to expand with precision, automation, and
-            intelligent client acquisition.
-          </p>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">Never miss a call                    </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Button
-              size="lg"
-              className="gradient-luxury text-primary-foreground shadow-luxury text-base px-8 py-6 transition-smooth hover:scale-105"
-            >
+            <Button size="lg" className="gradient-luxury text-primary-foreground shadow-luxury text-base px-8 py-6 transition-smooth hover:scale-105">
               Book Your Clinic Growth Audit
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-luxury-bronze/30 text-foreground hover:bg-luxury-sand/20 text-base px-8 py-6 transition-smooth"
-            >
+            <Button size="lg" variant="outline" className="border-luxury-bronze/30 text-foreground hover:bg-luxury-sand/20 text-base px-8 py-6 transition-smooth">
               See How AI Transforms Your Clinic
             </Button>
           </div>
@@ -72,8 +58,6 @@ const Hero = () => {
           <div className="w-1 h-2 rounded-full bg-luxury-bronze"></div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
