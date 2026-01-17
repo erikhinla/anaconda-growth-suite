@@ -1,0 +1,25 @@
+# Eva Paradis Landing Page Assets
+
+Place the following image files in this directory:
+
+## Required Images
+
+1. **eva-hero.jpg** - Hero background image (1920x1080 recommended)
+   - High-quality promotional shot
+   - Will be overlaid with gradient
+
+2. **teaser1.jpg** - Preview gallery image 1 (500x500 minimum)
+3. **teaser2.jpg** - Preview gallery image 2 (500x500 minimum)
+4. **teaser3.jpg** - Preview gallery image 3 (500x500 minimum)
+
+## Optional Images
+
+- **og-image.jpg** - Social sharing image (1200x630 recommended)
+- **favicon.ico** - Site favicon
+
+## Image Guidelines
+
+- Use high-quality JPG or WebP format
+- Optimize for web (compress without visible quality loss)
+- Ensure images are appropriate for the landing page context
+- Consider mobile display (images will be cropped on smaller screens)
