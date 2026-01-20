@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eva Paradis | The Italian VR Experience</title>
+    <meta name="description" content="Experience Italy's finest trans model in immersive VR. Exclusive content, daily chat, and authentic Italian elegance.">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="Eva Paradis | The Italian VR Experience">
+    <meta property="og:description" content="Unlock exclusive VR content and get 60% off your first month.">
+    <meta property="og:image" content="assets/og-image.jpg">
+    <meta property="og:type" content="website">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            --brand-gold: #D4AF37;
+            --brand-red: #8a0303;
+            --brand-red-dark: #500000;
+            --brand-black: #050505;
+        }
+
+        body {
+            background-color: var(--brand-black);
+            color: white;
+            font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .gold-text { color: var(--brand-gold); }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--brand-red), var(--brand-red-dark));
+            border: 1px solid var(--brand-gold);
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .blur-teaser {
+            filter: blur(12px);
+            transform: scale(1.1);
+        }
+
+        .card {
+            background: linear-gradient(145deg, rgba(26,26,26,0.9), rgba(10,10,10,0.95));
+            backdrop-filter: blur(10px);
+        }
+
+        /* Italian flag animation */
+        @keyframes flag-wave {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .flag-stripe { animation: flag-wave 3s ease-in-out infinite; }
+        .flag-stripe:nth-child(2) { animation-delay: 0.2s; }
+        .flag-stripe:nth-child(3) { animation-delay: 0.4s; }
+
+        /* Loading spinner */
+        .spinner {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Fade transitions */
+        .fade-out {
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.5s ease;
+        }
+
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.5s ease;
+        }
+
+        .hidden { display: none; }
+    </style>
+
+    <!-- TRACKING: Meta Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+
+        // Initialize Meta Pixel - Replace YOUR_META_PIXEL_ID with actual ID
+        fbq('init', 'YOUR_META_PIXEL_ID');
+        fbq('track', 'PageView'); // Track "Browsers"
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=YOUR_META_PIXEL_ID&ev=PageView&noscript=1"/>
+    </noscript>
+
+    <!-- TRACKING: TrafficJunky Pixel -->
+    <script>
+        var trafficJunkyID = "YOUR_TJ_ID";
+        // TrafficJunky retargeting logic would go here
+        window.tjTrack = function(event) {
+            console.log('[TrafficJunky] Event:', event);
+            // Actual TJ implementation
+        };
+    </script>
+</head>
+
+<body class="min-h-screen">
+    <!-- Italian Flag Accent -->
+    <div class="fixed top-0 left-0 w-full h-1 flex z-50">
+        <div class="flex-1 bg-green-600 flag-stripe"></div>
+        <div class="flex-1 bg-white flag-stripe"></div>
+        <div class="flex-1 bg-red-600 flag-stripe"></div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <header class="relative w-full min-h-[500px] bg-cover bg-center flex flex-col justify-center items-center text-center p-6"
+            style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(5,5,5,1)), url('assets/eva-hero.jpg');">
+
+        <div class="max-w-4xl mx-auto pt-8">
+            <p class="text-sm tracking-[0.5em] text-gray-400 mb-4 uppercase">Dalla Bella Italia</p>
+
+            <h1 class="text-5xl md:text-7xl font-bold gold-text tracking-widest mb-4 drop-shadow-2xl">
+                EVA PARADIS
+            </h1>
+
+            <p class="text-xl md:text-2xl italic text-gray-300 mb-8">
+                Italy's Finest Trans Model & VR Experience
+            </p>
+
+            <!-- VR Badge -->
+            <div class="inline-flex items-center gap-3 bg-gradient-to-r from-[#8a0303] to-[#500000] px-6 py-3 rounded-full border border-[#D4AF37]">
+                <svg class="w-6 h-6 text-[#D4AF37]" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.5 7H3.5A1.5 1.5 0 002 8.5v7a1.5 1.5 0 001.5 1.5h17a1.5 1.5 0 001.5-1.5v-7A1.5 1.5 0 0020.5 7zM6.5 14a2.5 2.5 0 110-5 2.5 2.5 0 010 5zm11 0a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/>
+                </svg>
+                <span class="text-sm font-semibold tracking-wider uppercase">Immersive VR Content</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- USP Strip -->
+    <div class="bg-gradient-to-r from-[#8a0303] via-[#500000] to-[#8a0303] py-4 border-y border-[#D4AF37]/30">
+        <div class="max-w-4xl mx-auto flex flex-wrap justify-center items-center gap-8 px-4 text-center">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl">🇮🇹</span>
+                <span class="text-sm uppercase tracking-wider font-medium">Italian Heritage</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="text-2xl">🥽</span>
+                <span class="text-sm uppercase tracking-wider font-medium">Exclusive VR Content</span>
+            </div>
+            <div class="flex items-center gap-2">
+                <span class="text-2xl">💬</span>
+                <span class="text-sm uppercase tracking-wider font-medium">VIP Daily Chat</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="w-full max-w-2xl mx-auto p-6 py-12">
+
+        <!-- GATE CONTAINER (Pre-Signup) -->
+        <div id="gate-container" class="card p-8 md:p-12 rounded-2xl border border-neutral-800 shadow-2xl">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">
+                    UNLOCK THE <span class="gold-text">VIP VAULT</span>
+                </h2>
+                <p class="text-gray-400 text-lg">
+                    Join the exclusive list to reveal the <strong class="text-white">Free Preview Gallery</strong>
+                    and get your <strong class="gold-text">60% OFF</strong> discount code.
+                </p>
+            </div>
+
+            <!-- TEASER IMAGES (Blurred) -->
+            <div class="grid grid-cols-3 gap-3 mb-8">
+                <div class="relative aspect-square bg-gray-900 rounded-lg overflow-hidden">
+                    <div class="absolute inset-0 blur-teaser bg-cover bg-center opacity-60" style="background-image: url('assets/teaser1.jpg')"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-[#D4AF37]/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="relative aspect-square bg-gray-900 rounded-lg overflow-hidden">
+                    <div class="absolute inset-0 blur-teaser bg-cover bg-center opacity-60" style="background-image: url('assets/teaser2.jpg')"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-[#D4AF37]/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="relative aspect-square bg-gray-900 rounded-lg overflow-hidden">
+                    <div class="absolute inset-0 blur-teaser bg-cover bg-center opacity-60" style="background-image: url('assets/teaser3.jpg')"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-[#D4AF37]/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CAPTURE FORM -->
+            <form id="optinForm" class="space-y-4">
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email address"
+                    class="w-full p-4 bg-black border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] outline-none transition-colors text-lg"
+                    required
+                >
+                <button
+                    type="submit"
+                    id="submitBtn"
+                    class="cta-btn w-full text-white font-bold py-5 rounded-lg text-xl uppercase tracking-wider"
+                >
+                    UNLOCK NOW
+                </button>
+            </form>
+
+            <p class="text-xs text-gray-500 mt-6 text-center">
+                100% Private. Unsubscribe anytime. No spam, ever.
+            </p>
+        </div>
+
+        <!-- REVEAL CONTAINER (Post-Signup) - Initially Hidden -->
+        <div id="reveal-container" class="hidden card p-8 md:p-12 rounded-2xl border-2 border-[#D4AF37] shadow-2xl shadow-[#D4AF37]/10">
+            <div class="text-center mb-8">
+                <!-- Success Icon -->
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-[#8a0303] to-[#500000] rounded-full mb-4 border border-[#D4AF37]">
+                    <svg class="w-8 h-8 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                </div>
+
+                <h2 class="text-3xl md:text-4xl font-bold gold-text mb-2">WELCOME TO PARADISE</h2>
+                <p class="text-gray-400 text-lg">Your exclusive access has been granted</p>
+            </div>
+
+            <!-- Discount Code Box -->
+            <div class="bg-black p-6 rounded-xl border border-[#D4AF37]/30 mb-8">
+                <p class="text-gray-400 text-sm mb-2 uppercase tracking-wider">Your Exclusive Discount Code</p>
+                <p class="text-3xl md:text-4xl font-mono font-bold gold-text mb-2">EVA60OFF</p>
+                <p class="text-[#D4AF37] text-lg font-semibold">60% OFF Your First Month</p>
+            </div>
+
+            <!-- CTA Button -->
+            <a
+                href="https://onlyfans.com/evaparadis"
+                target="_blank"
+                onclick="trackClicker()"
+                class="cta-btn block w-full py-5 text-center text-xl md:text-2xl font-bold rounded-lg text-white no-underline mb-8"
+            >
+                CLAIM DISCOUNT ON ONLYFANS
+            </a>
+
+            <!-- Unlocked Preview Gallery -->
+            <div>
+                <h3 class="text-lg text-gray-400 mb-4 text-center uppercase tracking-wider">Preview Gallery Unlocked</h3>
+                <div class="grid grid-cols-3 gap-3">
+                    <img src="assets/teaser1.jpg" alt="Preview 1" class="w-full aspect-square object-cover rounded-lg border border-gray-700 hover:border-[#D4AF37] transition-colors">
+                    <img src="assets/teaser2.jpg" alt="Preview 2" class="w-full aspect-square object-cover rounded-lg border border-gray-700 hover:border-[#D4AF37] transition-colors">
+                    <img src="assets/teaser3.jpg" alt="Preview 3" class="w-full aspect-square object-cover rounded-lg border border-gray-700 hover:border-[#D4AF37] transition-colors">
+                </div>
+            </div>
+
+            <!-- VR Teaser -->
+            <div class="mt-8 p-6 bg-gradient-to-r from-[#8a0303]/30 to-[#500000]/30 rounded-xl border border-[#D4AF37]/30">
+                <div class="flex items-center gap-3 mb-3">
+                    <svg class="w-8 h-8 text-[#D4AF37]" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M20.5 7H3.5A1.5 1.5 0 002 8.5v7a1.5 1.5 0 001.5 1.5h17a1.5 1.5 0 001.5-1.5v-7A1.5 1.5 0 0020.5 7zM6.5 14a2.5 2.5 0 110-5 2.5 2.5 0 010 5zm11 0a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/>
+                    </svg>
+                    <h4 class="text-xl font-bold gold-text">VR Experience Available</h4>
+                </div>
+                <p class="text-gray-400 text-sm">
+                    Upgrade to VIP for access to exclusive immersive VR content. Experience Italy's finest like never before.
+                </p>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="mt-12 grid md:grid-cols-3 gap-6">
+            <div class="card p-6 rounded-xl border border-neutral-800 text-center">
+                <div class="w-14 h-14 bg-gradient-to-r from-[#8a0303] to-[#500000] rounded-full flex items-center justify-center mx-auto mb-4 border border-[#D4AF37]/30">
+                    <span class="text-2xl">🇮🇹</span>
+                </div>
+                <h3 class="text-lg font-semibold gold-text mb-2">Italian Heritage</h3>
+                <p class="text-gray-400 text-sm">Authentic Italian elegance and passion in every exclusive piece of content.</p>
+            </div>
+
+            <div class="card p-6 rounded-xl border border-neutral-800 text-center">
+                <div class="w-14 h-14 bg-gradient-to-r from-[#8a0303] to-[#500000] rounded-full flex items-center justify-center mx-auto mb-4 border border-[#D4AF37]/30">
+                    <span class="text-2xl">🥽</span>
+                </div>
+                <h3 class="text-lg font-semibold gold-text mb-2">VR Experience</h3>
+                <p class="text-gray-400 text-sm">Immersive virtual reality content that puts you in the scene like never before.</p>
+            </div>
+
+            <div class="card p-6 rounded-xl border border-neutral-800 text-center">
+                <div class="w-14 h-14 bg-gradient-to-r from-[#8a0303] to-[#500000] rounded-full flex items-center justify-center mx-auto mb-4 border border-[#D4AF37]/30">
+                    <span class="text-2xl">💬</span>
+                </div>
+                <h3 class="text-lg font-semibold gold-text mb-2">VIP Daily Chat</h3>
+                <p class="text-gray-400 text-sm">Direct, personal access every day. Build a real connection with Eva.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-neutral-800 py-8 mt-12">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <p class="gold-text font-semibold mb-2">EVA PARADIS</p>
+            <p class="text-gray-500 text-sm">© 2026 All Rights Reserved. 18+ Only.</p>
+            <div class="flex justify-center gap-6 mt-4 text-xs text-gray-600">
+                <a href="#" class="hover:text-gray-400 transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-gray-400 transition-colors">Terms of Service</a>
+                <a href="#" class="hover:text-gray-400 transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGIC SCRIPT -->
+    <script>
+        // Form submission handler
+        document.getElementById('optinForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const submitBtn = document.getElementById('submitBtn');
+
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<svg class="spinner inline w-5 h-5 mr-2" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Processing...';
+
+            try {
+                // Send to backend
+                const response = await fetch('/api/subscribe', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: email, source: 'brand_bridge' })
+                });
+
+                if (response.ok) {
+                    // Fire Lead conversion pixel
+                    if (typeof fbq !== 'undefined') {
+                        fbq('track', 'Lead', {
+                            content_name: 'Eva Paradis Brand Bridge',
+                            content_category: 'Email Signup'
+                        });
+                    }
+
+                    // Fire TrafficJunky Lead event
+                    if (typeof tjTrack !== 'undefined') {
+                        tjTrack('Lead');
+                    }
+
+                    // Animate transition
+                    const gateContainer = document.getElementById('gate-container');
+                    const revealContainer = document.getElementById('reveal-container');
+
+                    gateContainer.classList.add('fade-out');
+
+                    setTimeout(() => {
+                        gateContainer.classList.add('hidden');
+                        revealContainer.classList.remove('hidden');
+                        revealContainer.classList.add('fade-in');
+                    }, 500);
+
+                    console.log('[Eva] Lead captured successfully');
+                } else {
+                    throw new Error('Subscription failed');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Something went wrong. Please try again.');
+
+                // Reset button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'UNLOCK NOW';
+            }
+        });
+
+        // Track OnlyFans click (High Intent Signal)
+        function trackClicker() {
+            // Fire InitiateCheckout to signal high purchase intent
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'InitiateCheckout', {
+                    content_name: 'Eva Paradis OnlyFans',
+                    content_category: 'OF Click'
+                });
+            }
+
+            // Fire TrafficJunky Click event
+            if (typeof tjTrack !== 'undefined') {
+                tjTrack('Click');
+            }
+
+            console.log("[Eva] User clicked OF link - Tagged as 'Hot Lead' for retargeting");
+        }
+    </script>
+</body>
+</html>
