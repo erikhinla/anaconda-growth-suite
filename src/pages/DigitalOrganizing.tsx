@@ -8,6 +8,8 @@ import DOFitFilter from "@/components/digital-organizing/DOFitFilter";
 import DOConversion from "@/components/digital-organizing/DOConversion";
 import DOTrust from "@/components/digital-organizing/DOTrust";
 import DOFAQ from "@/components/digital-organizing/DOFAQ";
+import DOCaseStudy from "@/components/digital-organizing/DOCaseStudy";
+import DOClawBot from "@/components/digital-organizing/DOClawBot";
 import DOTraffic from "@/components/digital-organizing/DOTraffic";
 import DOConversionSystems from "@/components/digital-organizing/DOConversionSystems";
 import DOFooter from "@/components/digital-organizing/DOFooter";
@@ -25,6 +27,8 @@ const DigitalOrganizing = () => {
       <DOConversion />
       <DOTrust />
       <DOFAQ />
+      <DOCaseStudy />
+      <DOClawBot />
       <DOTraffic />
       <DOConversionSystems />
       <DOFooter />
