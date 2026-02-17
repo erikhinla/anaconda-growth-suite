@@ -47,56 +47,7 @@ const MONTHS = [
   "July", "August", "September", "October", "November", "December"
 ];
 
-const MOCK_POSTS: ScheduledPost[] = [
-  {
-    id: "1",
-    date: "2026-01-31",
-    time: "18:00",
-    platform: "reddit",
-    title: "VR Preview - Italian Experience",
-    type: "video",
-    status: "scheduled",
-    subreddit: "r/TransGoneWild",
-  },
-  {
-    id: "2",
-    date: "2026-01-31",
-    time: "20:00",
-    platform: "redgifs",
-    title: "New VIP Content Teaser",
-    type: "video",
-    status: "scheduled",
-  },
-  {
-    id: "3",
-    date: "2026-02-01",
-    time: "19:00",
-    platform: "reddit",
-    title: "Ciao from Italy",
-    type: "image",
-    status: "scheduled",
-    subreddit: "r/OnlyFansPromotions",
-  },
-  {
-    id: "4",
-    date: "2026-02-02",
-    time: "21:00",
-    platform: "twitter",
-    title: "Daily chat reminder",
-    type: "text",
-    status: "scheduled",
-  },
-  {
-    id: "5",
-    date: "2026-02-03",
-    time: "18:00",
-    platform: "reddit",
-    title: "Behind the scenes",
-    type: "video",
-    status: "scheduled",
-    subreddit: "r/Tgirls",
-  },
-];
+const INITIAL_POSTS: ScheduledPost[] = [];
 
 const getPlatformColor = (platform: string) => {
   switch (platform) {
@@ -131,8 +82,8 @@ const getPlatformIcon = (platform: string) => {
 };
 
 const ContentCalendar = () => {
-  const [currentDate, setCurrentDate] = useState(new Date(2026, 0, 31)); // January 31, 2026
-  const [posts, setPosts] = useState<ScheduledPost[]>(MOCK_POSTS);
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const [posts, setPosts] = useState<ScheduledPost[]>(INITIAL_POSTS);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
 

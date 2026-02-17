@@ -50,8 +50,8 @@ const SUBREDDIT_DATABASE: Subreddit[] = [
     bestTime: "6PM EST",
     rules: ["No spam", "Must be verified", "Watermark required"],
     status: "active",
-    lastPost: "2 days ago",
-    engagement: 4.2,
+    lastPost: "Never",
+    engagement: 0,
   },
   {
     name: "r/OnlyFans101",
@@ -60,8 +60,8 @@ const SUBREDDIT_DATABASE: Subreddit[] = [
     bestTime: "8PM EST",
     rules: ["SFW previews only", "Link in comments", "Flair required"],
     status: "active",
-    lastPost: "1 day ago",
-    engagement: 3.8,
+    lastPost: "Never",
+    engagement: 0,
   },
   {
     name: "r/TransGoneWild",
@@ -70,8 +70,8 @@ const SUBREDDIT_DATABASE: Subreddit[] = [
     bestTime: "10PM EST",
     rules: ["Verification required", "No selling in title", "Quality content"],
     status: "active",
-    lastPost: "12 hours ago",
-    engagement: 5.1,
+    lastPost: "Never",
+    engagement: 0,
   },
   {
     name: "r/Tgirls",
@@ -79,9 +79,9 @@ const SUBREDDIT_DATABASE: Subreddit[] = [
     postFrequency: "1/day",
     bestTime: "9PM EST",
     rules: ["Must be 18+", "No reposts within 30 days"],
-    status: "cooling",
-    lastPost: "6 hours ago",
-    engagement: 4.5,
+    status: "active",
+    lastPost: "Never",
+    engagement: 0,
   },
   {
     name: "r/TransGirls",
@@ -90,8 +90,8 @@ const SUBREDDIT_DATABASE: Subreddit[] = [
     bestTime: "7PM EST",
     rules: ["Verified creators only", "No spam links"],
     status: "active",
-    lastPost: "3 days ago",
-    engagement: 3.9,
+    lastPost: "Never",
+    engagement: 0,
   },
   {
     name: "r/ItalianBabes",
@@ -100,8 +100,8 @@ const SUBREDDIT_DATABASE: Subreddit[] = [
     bestTime: "3PM EST",
     rules: ["Italian heritage verified", "Quality photos only"],
     status: "active",
-    lastPost: "5 days ago",
-    engagement: 4.8,
+    lastPost: "Never",
+    engagement: 0,
   },
 ];
 
@@ -175,7 +175,7 @@ const RedditStrategy = () => {
               <Users className="w-5 h-5 text-[#FF4500]" />
             </div>
             <div>
-              <p className="text-xl font-bold text-white">6</p>
+              <p className="text-xl font-bold text-white">0</p>
               <p className="text-xs text-gray-500">Active Subreddits</p>
             </div>
           </CardContent>
@@ -187,7 +187,7 @@ const RedditStrategy = () => {
               <TrendingUp className="w-5 h-5 text-green-500" />
             </div>
             <div>
-              <p className="text-xl font-bold text-white">4.2%</p>
+              <p className="text-xl font-bold text-white">0%</p>
               <p className="text-xs text-gray-500">Avg Engagement</p>
             </div>
           </CardContent>
@@ -199,7 +199,7 @@ const RedditStrategy = () => {
               <Clock className="w-5 h-5 text-blue-500" />
             </div>
             <div>
-              <p className="text-xl font-bold text-white">3</p>
+              <p className="text-xl font-bold text-white">0</p>
               <p className="text-xs text-gray-500">Scheduled Posts</p>
             </div>
           </CardContent>
@@ -211,7 +211,7 @@ const RedditStrategy = () => {
               <AlertTriangle className="w-5 h-5 text-yellow-500" />
             </div>
             <div>
-              <p className="text-xl font-bold text-white">1</p>
+              <p className="text-xl font-bold text-white">0</p>
               <p className="text-xs text-gray-500">Cooling Down</p>
             </div>
           </CardContent>
@@ -395,32 +395,11 @@ const RedditStrategy = () => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {[
-                { sub: "r/TransGoneWild", title: "Experience me in VR 🥽", time: "Today 6PM", status: "pending" },
-                { sub: "r/OnlyFansPromotions", title: "Ciao from Italy 🇮🇹", time: "Tomorrow 8PM", status: "pending" },
-                { sub: "r/Tgirls", title: "Let's chat today 💬", time: "Feb 2, 9PM", status: "pending" },
-              ].map((post, idx) => (
-                <TableRow key={idx} className="border-neutral-800">
-                  <TableCell className="text-[#FF4500]">{post.sub}</TableCell>
-                  <TableCell className="text-white">{post.title}</TableCell>
-                  <TableCell className="text-gray-400">{post.time}</TableCell>
-                  <TableCell>
-                    <Badge variant="outline" className="border-yellow-500 text-yellow-500">
-                      {post.status}
-                    </Badge>
-                  </TableCell>
-                  <TableCell>
-                    <div className="flex gap-2">
-                      <Button variant="ghost" size="sm" className="text-gray-400 hover:text-white">
-                        Edit
-                      </Button>
-                      <Button variant="ghost" size="sm" className="text-red-500 hover:text-red-400">
-                        Delete
-                      </Button>
-                    </div>
-                  </TableCell>
-                </TableRow>
-              ))}
+              <TableRow className="border-neutral-800">
+                <TableCell colSpan={5} className="text-center text-gray-500 py-8">
+                  No scheduled posts yet. Use the composer above to plan your first post.
+                </TableCell>
+              </TableRow>
             </TableBody>
           </Table>
         </CardContent>

@@ -36,42 +36,19 @@ import {
   Calendar,
 } from "lucide-react";
 
-// Mock data for charts
-const trafficData = [
-  { date: "Jan 24", reddit: 450, redgifs: 320, direct: 180, twitter: 90 },
-  { date: "Jan 25", reddit: 520, redgifs: 380, direct: 200, twitter: 120 },
-  { date: "Jan 26", reddit: 680, redgifs: 450, direct: 220, twitter: 150 },
-  { date: "Jan 27", reddit: 590, redgifs: 520, direct: 190, twitter: 180 },
-  { date: "Jan 28", reddit: 720, redgifs: 480, direct: 240, twitter: 200 },
-  { date: "Jan 29", reddit: 850, redgifs: 620, direct: 280, twitter: 220 },
-  { date: "Jan 30", reddit: 920, redgifs: 580, direct: 310, twitter: 250 },
-];
+const trafficData: { date: string; reddit: number; redgifs: number; direct: number; twitter: number }[] = [];
 
-const conversionData = [
-  { date: "Jan 24", visitors: 1040, leads: 145, clicks: 98, subs: 24 },
-  { date: "Jan 25", visitors: 1220, leads: 168, clicks: 112, subs: 28 },
-  { date: "Jan 26", visitors: 1500, leads: 210, clicks: 145, subs: 35 },
-  { date: "Jan 27", visitors: 1480, leads: 195, clicks: 138, subs: 32 },
-  { date: "Jan 28", visitors: 1640, leads: 228, clicks: 165, subs: 42 },
-  { date: "Jan 29", visitors: 1970, leads: 275, clicks: 198, subs: 51 },
-  { date: "Jan 30", visitors: 2060, leads: 290, clicks: 212, subs: 55 },
-];
+const conversionData: { date: string; visitors: number; leads: number; clicks: number; subs: number }[] = [];
 
 const sourceData = [
-  { name: "Reddit", value: 45, color: "#FF4500" },
-  { name: "RedGifs", value: 28, color: "#E53935" },
-  { name: "Direct", value: 15, color: "#D4AF37" },
-  { name: "Twitter", value: 8, color: "#1DA1F2" },
-  { name: "Other", value: 4, color: "#666666" },
+  { name: "Reddit", value: 0, color: "#FF4500" },
+  { name: "RedGifs", value: 0, color: "#E53935" },
+  { name: "Direct", value: 0, color: "#D4AF37" },
+  { name: "Twitter", value: 0, color: "#1DA1F2" },
+  { name: "Other", value: 0, color: "#666666" },
 ];
 
-const subredditPerformance = [
-  { name: "r/TransGoneWild", visitors: 2450, leads: 312, rate: 12.7 },
-  { name: "r/OnlyFansPromotions", visitors: 1820, leads: 218, rate: 12.0 },
-  { name: "r/Tgirls", visitors: 1650, leads: 185, rate: 11.2 },
-  { name: "r/TransGirls", visitors: 1280, leads: 128, rate: 10.0 },
-  { name: "r/ItalianBabes", visitors: 680, leads: 82, rate: 12.1 },
-];
+const subredditPerformance: { name: string; visitors: number; leads: number; rate: number }[] = [];
 
 const AnalyticsDashboard = () => {
   const [timeRange, setTimeRange] = useState("7d");
@@ -106,12 +83,11 @@ const AnalyticsDashboard = () => {
               <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center">
                 <Eye className="w-5 h-5 text-blue-500" />
               </div>
-              <Badge className="bg-green-500/20 text-green-500">
-                <TrendingUp className="w-3 h-3 mr-1" />
-                +23%
+              <Badge className="bg-neutral-700 text-gray-400">
+                —
               </Badge>
             </div>
-            <p className="text-2xl font-bold text-white">10.9K</p>
+            <p className="text-2xl font-bold text-white">0</p>
             <p className="text-sm text-gray-500">Total Visitors</p>
           </CardContent>
         </Card>
@@ -122,12 +98,11 @@ const AnalyticsDashboard = () => {
               <div className="w-10 h-10 bg-[#D4AF37]/20 rounded-lg flex items-center justify-center">
                 <Users className="w-5 h-5 text-[#D4AF37]" />
               </div>
-              <Badge className="bg-green-500/20 text-green-500">
-                <TrendingUp className="w-3 h-3 mr-1" />
-                +18%
+              <Badge className="bg-neutral-700 text-gray-400">
+                —
               </Badge>
             </div>
-            <p className="text-2xl font-bold text-white">1,511</p>
+            <p className="text-2xl font-bold text-white">0</p>
             <p className="text-sm text-gray-500">Email Leads</p>
           </CardContent>
         </Card>
@@ -138,12 +113,11 @@ const AnalyticsDashboard = () => {
               <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center">
                 <MousePointerClick className="w-5 h-5 text-purple-500" />
               </div>
-              <Badge className="bg-green-500/20 text-green-500">
-                <TrendingUp className="w-3 h-3 mr-1" />
-                +12%
+              <Badge className="bg-neutral-700 text-gray-400">
+                —
               </Badge>
             </div>
-            <p className="text-2xl font-bold text-white">1,068</p>
+            <p className="text-2xl font-bold text-white">0</p>
             <p className="text-sm text-gray-500">OF Clicks</p>
           </CardContent>
         </Card>
@@ -154,12 +128,11 @@ const AnalyticsDashboard = () => {
               <div className="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center">
                 <DollarSign className="w-5 h-5 text-green-500" />
               </div>
-              <Badge className="bg-green-500/20 text-green-500">
-                <TrendingUp className="w-3 h-3 mr-1" />
-                +31%
+              <Badge className="bg-neutral-700 text-gray-400">
+                —
               </Badge>
             </div>
-            <p className="text-2xl font-bold text-white">267</p>
+            <p className="text-2xl font-bold text-white">0</p>
             <p className="text-sm text-gray-500">New Subscribers</p>
           </CardContent>
         </Card>
@@ -328,27 +301,27 @@ const AnalyticsDashboard = () => {
         <Card className="bg-neutral-900 border-neutral-800">
           <CardContent className="p-6 text-center">
             <Target className="w-8 h-8 text-[#D4AF37] mx-auto mb-2" />
-            <p className="text-3xl font-bold text-white">13.9%</p>
+            <p className="text-3xl font-bold text-white">0%</p>
             <p className="text-sm text-gray-500">Visitor → Lead</p>
-            <p className="text-xs text-green-500 mt-1">+2.1% vs last week</p>
+            <p className="text-xs text-gray-500 mt-1">No data yet</p>
           </CardContent>
         </Card>
 
         <Card className="bg-neutral-900 border-neutral-800">
           <CardContent className="p-6 text-center">
             <Target className="w-8 h-8 text-purple-500 mx-auto mb-2" />
-            <p className="text-3xl font-bold text-white">70.7%</p>
+            <p className="text-3xl font-bold text-white">0%</p>
             <p className="text-sm text-gray-500">Lead → OF Click</p>
-            <p className="text-xs text-green-500 mt-1">+5.3% vs last week</p>
+            <p className="text-xs text-gray-500 mt-1">No data yet</p>
           </CardContent>
         </Card>
 
         <Card className="bg-neutral-900 border-neutral-800">
           <CardContent className="p-6 text-center">
             <Target className="w-8 h-8 text-green-500 mx-auto mb-2" />
-            <p className="text-3xl font-bold text-white">25.0%</p>
+            <p className="text-3xl font-bold text-white">0%</p>
             <p className="text-sm text-gray-500">Click → Subscriber</p>
-            <p className="text-xs text-green-500 mt-1">+3.8% vs last week</p>
+            <p className="text-xs text-gray-500 mt-1">No data yet</p>
           </CardContent>
         </Card>
       </div>

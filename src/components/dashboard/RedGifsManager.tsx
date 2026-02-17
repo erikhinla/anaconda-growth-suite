@@ -48,56 +48,7 @@ interface RedGifItem {
   directLink: string;
 }
 
-const MOCK_GIFS: RedGifItem[] = [
-  {
-    id: "1",
-    title: "Italian VR Preview - Full Experience",
-    thumbnail: "/api/placeholder/320/180",
-    views: 12450,
-    likes: 892,
-    duration: "0:45",
-    uploadDate: "2 days ago",
-    status: "live",
-    embedCode: '<iframe src="https://redgifs.com/ifr/eva-preview-1" width="640" height="360"></iframe>',
-    directLink: "https://redgifs.com/watch/eva-preview-1",
-  },
-  {
-    id: "2",
-    title: "Behind the Scenes - Italy Shoot",
-    thumbnail: "/api/placeholder/320/180",
-    views: 8932,
-    likes: 654,
-    duration: "1:20",
-    uploadDate: "5 days ago",
-    status: "live",
-    embedCode: '<iframe src="https://redgifs.com/ifr/eva-bts-italy" width="640" height="360"></iframe>',
-    directLink: "https://redgifs.com/watch/eva-bts-italy",
-  },
-  {
-    id: "3",
-    title: "VIP Teaser - New Content Coming",
-    thumbnail: "/api/placeholder/320/180",
-    views: 15678,
-    likes: 1102,
-    duration: "0:30",
-    uploadDate: "1 week ago",
-    status: "live",
-    embedCode: '<iframe src="https://redgifs.com/ifr/eva-vip-teaser" width="640" height="360"></iframe>',
-    directLink: "https://redgifs.com/watch/eva-vip-teaser",
-  },
-  {
-    id: "4",
-    title: "Daily Chat Preview",
-    thumbnail: "/api/placeholder/320/180",
-    views: 0,
-    likes: 0,
-    duration: "0:15",
-    uploadDate: "Processing",
-    status: "processing",
-    embedCode: "",
-    directLink: "",
-  },
-];
+const INITIAL_GIFS: RedGifItem[] = [];
 
 const CATEGORIES = [
   "Trans",
@@ -110,7 +61,7 @@ const CATEGORIES = [
 ];
 
 const RedGifsManager = () => {
-  const [gifs, setGifs] = useState<RedGifItem[]>(MOCK_GIFS);
+  const [gifs, setGifs] = useState<RedGifItem[]>(INITIAL_GIFS);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [isUploading, setIsUploading] = useState(false);
   const [copied, setCopied] = useState<string | null>(null);

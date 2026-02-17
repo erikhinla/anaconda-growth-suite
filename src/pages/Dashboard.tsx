@@ -20,14 +20,13 @@ import {
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState("overview");
 
-  // Mock stats - replace with real data from your backend
   const stats = {
-    totalLeads: 1247,
-    weeklyGrowth: 23.5,
-    pageViews: 8432,
-    clickThroughRate: 4.2,
-    topSubreddit: "r/OnlyFansPromotions",
-    redgifsViews: 45200,
+    totalLeads: 0,
+    weeklyGrowth: 0,
+    pageViews: 0,
+    clickThroughRate: 0,
+    topSubreddit: "—",
+    redgifsViews: 0,
   };
 
   return (
@@ -225,27 +224,9 @@ const Dashboard = () => {
                   <CardDescription>Latest leads and conversions</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-4">
-                    {[
-                      { type: "lead", email: "j***@gmail.com", time: "2 min ago", source: "Reddit" },
-                      { type: "click", email: "m***@yahoo.com", time: "15 min ago", source: "RedGifs" },
-                      { type: "lead", email: "a***@outlook.com", time: "1 hour ago", source: "Direct" },
-                      { type: "lead", email: "s***@gmail.com", time: "2 hours ago", source: "Reddit" },
-                      { type: "click", email: "r***@proton.me", time: "3 hours ago", source: "Twitter" },
-                    ].map((activity, idx) => (
-                      <div key={idx} className="flex items-center justify-between p-3 bg-neutral-800 rounded-lg">
-                        <div className="flex items-center gap-3">
-                          <div className={`w-2 h-2 rounded-full ${activity.type === 'lead' ? 'bg-green-500' : 'bg-blue-500'}`} />
-                          <div>
-                            <p className="text-sm text-white">{activity.email}</p>
-                            <p className="text-xs text-gray-500">{activity.time}</p>
-                          </div>
-                        </div>
-                        <Badge variant="outline" className="text-xs">
-                          {activity.source}
-                        </Badge>
-                      </div>
-                    ))}
+                  <div className="flex flex-col items-center justify-center py-8 text-gray-500">
+                    <p className="text-sm">No activity yet</p>
+                    <p className="text-xs mt-1">Leads will appear here as they come in</p>
                   </div>
                 </CardContent>
               </Card>
@@ -260,11 +241,11 @@ const Dashboard = () => {
               <CardContent>
                 <div className="flex items-center justify-between gap-4">
                   {[
-                    { label: "Reddit/RedGifs", value: "12,450", pct: "100%" },
-                    { label: "Landing Page", value: "8,432", pct: "67.7%" },
-                    { label: "Email Captured", value: "1,247", pct: "14.8%" },
-                    { label: "OF Clicked", value: "892", pct: "71.5%" },
-                    { label: "Subscribed", value: "234", pct: "26.2%" },
+                    { label: "Reddit/RedGifs", value: "0", pct: "—" },
+                    { label: "Landing Page", value: "0", pct: "—" },
+                    { label: "Email Captured", value: "0", pct: "—" },
+                    { label: "OF Clicked", value: "0", pct: "—" },
+                    { label: "Subscribed", value: "0", pct: "—" },
                   ].map((step, idx) => (
                     <div key={idx} className="flex-1 text-center">
                       <div className="relative">
