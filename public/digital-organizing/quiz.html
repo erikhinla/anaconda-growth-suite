@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>How Organized Is Your Digital Life? | OCD Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--slate-50:#f8fafc;--slate-100:#f1f5f9;--slate-200:#e2e8f0;--slate-300:#cbd5e1;--slate-400:#94a3b8;--slate-500:#64748b;--slate-600:#475569;--slate-700:#334155;--slate-800:#1e293b;--slate-900:#0f172a;--slate-950:#020617;--teal-50:#f0fdfa;--teal-100:#ccfbf1;--teal-400:#2dd4bf;--teal-500:#14b8a6;--teal-600:#0d9488;--cyan-400:#22d3ee;--red-400:#f87171;--red-500:#ef4444;--yellow-400:#facc15;--yellow-500:#eab308;--green-400:#4ade80;--green-500:#22c55e;--white:#fff}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--slate-950);color:var(--slate-300);min-height:100vh;-webkit-font-smoothing:antialiased}
+.container{max-width:680px;margin:0 auto;padding:0 20px}
+
+/* NAV */
+.qz-nav{background:rgba(15,23,42,.9);backdrop-filter:blur(12px);border-bottom:1px solid rgba(51,65,85,.5);padding:16px 0;text-align:center}
+.qz-nav span{font-size:.875rem;font-weight:600;color:var(--white)}
+.qz-nav small{color:var(--slate-400);margin-left:8px;font-size:.75rem}
+
+/* HERO */
+.qz-hero{text-align:center;padding:64px 20px 48px}
+.qz-hero h1{font-size:clamp(1.5rem,4vw,2.25rem);font-weight:700;color:var(--white);margin-bottom:12px;line-height:1.2}
+.qz-hero p{font-size:.9375rem;color:var(--slate-400);max-width:500px;margin:0 auto}
+
+/* PROGRESS */
+.qz-progress{padding:0 20px 32px}
+.qz-progress-inner{max-width:680px;margin:0 auto}
+.qz-progress-bar{height:6px;background:var(--slate-800);border-radius:999px;overflow:hidden}
+.qz-progress-fill{height:100%;background:linear-gradient(90deg,var(--teal-500),var(--cyan-400));border-radius:999px;transition:width .4s ease}
+.qz-progress-text{display:flex;justify-content:space-between;margin-top:8px;font-size:.75rem;color:var(--slate-500)}
+
+/* QUESTION */
+.qz-question{padding:0 20px 48px}
+.qz-card{background:var(--slate-800);border:1px solid var(--slate-700);border-radius:16px;padding:32px;max-width:680px;margin:0 auto}
+.qz-card h2{font-size:1.125rem;font-weight:600;color:var(--white);margin-bottom:8px}
+.qz-card .qz-cat{font-size:.6875rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--teal-400);margin-bottom:16px}
+.qz-options{display:flex;flex-direction:column;gap:10px}
+.qz-opt{display:block;width:100%;text-align:left;padding:14px 18px;border-radius:10px;border:1px solid var(--slate-700);background:transparent;color:var(--slate-300);font-size:.875rem;font-family:inherit;cursor:pointer;transition:all .2s}
+.qz-opt:hover{border-color:var(--teal-500);background:rgba(20,184,166,.05);color:var(--white)}
+.qz-opt.selected{border-color:var(--teal-500);background:rgba(20,184,166,.1);color:var(--white)}
+
+/* RESULTS */
+.qz-results{display:none;padding:0 20px 64px}
+.qz-results.show{display:block}
+.qz-results-card{background:var(--slate-800);border:1px solid var(--slate-700);border-radius:16px;padding:40px 32px;max-width:680px;margin:0 auto;text-align:center}
+.qz-score-ring{width:120px;height:120px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:2rem;font-weight:700;color:var(--white)}
+.qz-score-ring.critical{background:rgba(239,68,68,.15);border:3px solid var(--red-500)}
+.qz-score-ring.needs-work{background:rgba(234,179,8,.15);border:3px solid var(--yellow-500)}
+.qz-score-ring.solid{background:rgba(34,197,94,.15);border:3px solid var(--green-500)}
+.qz-results-card h2{font-size:1.5rem;font-weight:700;color:var(--white);margin-bottom:8px}
+.qz-results-card .qz-verdict{font-size:1rem;margin-bottom:24px}
+.qz-verdict.critical{color:var(--red-400)}
+.qz-verdict.needs-work{color:var(--yellow-400)}
+.qz-verdict.solid{color:var(--green-400)}
+.qz-breakdown{text-align:left;margin-bottom:32px}
+.qz-breakdown h3{font-size:.875rem;font-weight:600;color:var(--white);margin-bottom:16px}
+.qz-breakdown-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid rgba(51,65,85,.5)}
+.qz-breakdown-row:last-child{border:none}
+.qz-breakdown-label{font-size:.8125rem;color:var(--slate-400)}
+.qz-breakdown-score{font-size:.8125rem;font-weight:600;padding:2px 10px;border-radius:999px}
+.qz-breakdown-score.low{background:rgba(239,68,68,.15);color:var(--red-400)}
+.qz-breakdown-score.mid{background:rgba(234,179,8,.15);color:var(--yellow-400)}
+.qz-breakdown-score.high{background:rgba(34,197,94,.15);color:var(--green-400)}
+.qz-cta-box{background:rgba(20,184,166,.08);border:1px solid rgba(20,184,166,.2);border-radius:12px;padding:24px;margin-bottom:16px}
+.qz-cta-box p{font-size:.875rem;color:var(--slate-300);margin-bottom:16px;line-height:1.6}
+.qz-cta-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:10px;font-size:1rem;font-weight:600;color:var(--white);background:linear-gradient(135deg,var(--teal-500),var(--cyan-400));box-shadow:0 8px 24px rgba(20,184,166,.25);text-decoration:none;transition:all .3s;border:none;cursor:pointer;font-family:inherit}
+.qz-cta-btn:hover{transform:scale(1.05);box-shadow:0 8px 32px rgba(20,184,166,.4)}
+.qz-restart{margin-top:16px;font-size:.8125rem;color:var(--slate-500);background:none;border:none;cursor:pointer;font-family:inherit;text-decoration:underline}
+.qz-restart:hover{color:var(--white)}
+
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+
+<div class="qz-nav"><span>OCD Experience</span><small>Digital Organizing</small></div>
+
+<div class="qz-hero" id="quizHero">
+  <h1>How organized is your digital life?</h1>
+  <p>5 questions. 60 seconds. Find out where your digital systems stand and what to fix first.</p>
+  <br>
+  <button class="qz-cta-btn" onclick="startQuiz()">Start the Assessment</button>
+</div>
+
+<div class="hidden" id="quizBody">
+  <div class="qz-progress">
+    <div class="qz-progress-inner">
+      <div class="qz-progress-bar"><div class="qz-progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div class="qz-progress-text"><span id="progressLabel">Question 1 of 5</span><span id="progressPct">0%</span></div>
+    </div>
+  </div>
+  <div class="qz-question" id="questionArea"></div>
+</div>
+
+<div class="qz-results" id="resultsArea">
+  <div class="qz-results-card" id="resultsCard"></div>
+</div>
+
+<script>
+var questions=[
+{cat:"File Management",q:"When you need a specific document, how long does it take to find it?",opts:[
+{text:"I know exactly where everything is — under 10 seconds",score:4},
+{text:"Usually find it within a minute or two",score:3},
+{text:"I search around for a while, sometimes re-download it",score:2},
+{text:"I often can't find it and have to recreate or ask someone to resend",score:1}
+]},
+{cat:"Email & Communication",q:"What does your primary email inbox look like right now?",opts:[
+{text:"Under 50 emails, everything processed or filed",score:4},
+{text:"A few hundred, mostly under control",score:3},
+{text:"Thousands unread, I rely on search to find things",score:2},
+{text:"I've lost track — multiple accounts, all overflowing",score:1}
+]},
+{cat:"Passwords & Security",q:"How do you manage your passwords and account security?",opts:[
+{text:"Password manager with unique passwords, 2FA enabled everywhere",score:4},
+{text:"Password manager but not fully set up, some reuse",score:3},
+{text:"I reuse passwords and reset them when I forget",score:2},
+{text:"Same password for most things, no 2FA, lost access to some accounts",score:1}
+]},
+{cat:"Device & Cloud Sync",q:"Are your files consistent across your devices?",opts:[
+{text:"Yes — everything syncs automatically, same structure everywhere",score:4},
+{text:"Mostly, but some things only exist on one device",score:3},
+{text:"I'm not sure what's where, different files on different devices",score:2},
+{text:"Complete chaos — duplicates everywhere, nothing syncs reliably",score:1}
+]},
+{cat:"System Maintenance",q:"Do you have a routine for maintaining your digital organization?",opts:[
+{text:"Yes — weekly cleanup, regular archive, clear naming conventions",score:4},
+{text:"I tidy up occasionally when things get bad",score:3},
+{text:"I've tried but never stick with it",score:2},
+{text:"No routine at all — it just accumulates",score:1}
+]}
+];
+
+var current=0,answers=[];
+
+function startQuiz(){
+  document.getElementById('quizHero').classList.add('hidden');
+  document.getElementById('quizBody').classList.remove('hidden');
+  showQuestion();
+}
+
+function showQuestion(){
+  var q=questions[current];
+  var pct=Math.round((current/questions.length)*100);
+  document.getElementById('progressFill').style.width=pct+'%';
+  document.getElementById('progressLabel').textContent='Question '+(current+1)+' of '+questions.length;
+  document.getElementById('progressPct').textContent=pct+'%';
+  var html='<div class="qz-card"><div class="qz-cat">'+q.cat+'</div><h2>'+q.q+'</h2><div class="qz-options">';
+  for(var i=0;i<q.opts.length;i++){
+    html+='<button class="qz-opt" onclick="selectAnswer('+i+','+q.opts[i].score+')">'+q.opts[i].text+'</button>';
+  }
+  html+='</div></div>';
+  document.getElementById('questionArea').innerHTML=html;
+}
+
+function selectAnswer(idx,score){
+  var opts=document.querySelectorAll('.qz-opt');
+  for(var i=0;i<opts.length;i++) opts[i].classList.remove('selected');
+  opts[idx].classList.add('selected');
+  answers.push({cat:questions[current].cat,score:score});
+  setTimeout(function(){
+    current++;
+    if(current<questions.length){showQuestion()}
+    else{showResults()}
+  },400);
+}
+
+function showResults(){
+  document.getElementById('quizBody').classList.add('hidden');
+  var total=0;
+  for(var i=0;i<answers.length;i++) total+=answers[i].score;
+  var max=questions.length*4;
+  var pct=Math.round((total/max)*100);
+  var level,verdict,ctaText;
+  if(pct<=40){level='critical';verdict='Your digital systems need urgent attention.';ctaText='Your score indicates significant digital disorganization that is costing you time and creating security risks. A Digital Audit will map the full scope and give you a clear action plan.';}
+  else if(pct<=70){level='needs-work';verdict='Your systems are functional but fragile.';ctaText='You have some structure in place but gaps that will widen over time. A Jumpstart Session can close those gaps and build a system that maintains itself.';}
+  else{level='solid';verdict='Your digital systems are in good shape.';ctaText='You are ahead of most people. If you want to optimize further or future-proof your setup, a Digital Audit can identify remaining opportunities.';}
+
+  var html='<div class="qz-score-ring '+level+'">'+pct+'%</div>';
+  html+='<h2>Your Digital Organization Score</h2>';
+  html+='<p class="qz-verdict '+level+'">'+verdict+'</p>';
+  html+='<div class="qz-breakdown"><h3>Breakdown by Category</h3>';
+  for(var j=0;j<answers.length;j++){
+    var s=answers[j].score;
+    var cl=s<=1?'low':s<=2?'mid':'high';
+    var lb=s<=1?'Critical':s<=2?'Needs Work':s<=3?'OK':'Strong';
+    html+='<div class="qz-breakdown-row"><span class="qz-breakdown-label">'+answers[j].cat+'</span><span class="qz-breakdown-score '+cl+'">'+lb+'</span></div>';
+  }
+  html+='</div>';
+  html+='<div class="qz-cta-box"><p>'+ctaText+'</p><a href="/digital-organizing#book" class="qz-cta-btn">Book Your Digital Audit</a></div>';
+  html+='<button class="qz-restart" onclick="restart()">Retake Assessment</button>';
+
+  document.getElementById('resultsCard').innerHTML=html;
+  document.getElementById('resultsArea').classList.add('show');
+}
+
+function restart(){
+  current=0;answers=[];
+  document.getElementById('resultsArea').classList.remove('show');
+  document.getElementById('quizHero').classList.remove('hidden');
+}
+</script>
+</body>
+</html>
