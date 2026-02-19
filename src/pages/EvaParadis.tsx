@@ -24,8 +24,8 @@ const EvaParadis = () => {
       const result = await subscribeToBrevo(email);
 
       if (result.success) {
-        // Fire conversion pixel
-        trackLead();
+        // Fire conversion pixel + write to Supabase
+        trackLead(email);
 
         // Reveal content
         setIsUnlocked(true);
